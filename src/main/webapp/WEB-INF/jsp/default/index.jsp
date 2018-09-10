@@ -12,5 +12,6 @@
 </head>
 <body>
 ${msg}
+${userCount}
 </body>
 </html>
