@@ -1,11 +1,12 @@
 package com.study.web;
 
-import com.study.service.UserInfo;
+import com.study.domain.entity.UserInfo;
+import com.study.service.UserInfoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -21,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class DefaultController {
     private Logger logger = LoggerFactory.getLogger(DefaultController.class);
     @Autowired
-    public UserInfo userInfo;
+    public UserInfoService userInfo;
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public ModelAndView index() {
@@ -29,7 +30,7 @@ public class DefaultController {
         logger.info("hello world! logback");
         ModelAndView model = new ModelAndView(name);
         model.addObject("msg", "hello world! by spring mvc");
-        model.addObject("userCount", this.userInfo.count());
+        model.addObject("userCount", 0);
         return model;
     }
 }
