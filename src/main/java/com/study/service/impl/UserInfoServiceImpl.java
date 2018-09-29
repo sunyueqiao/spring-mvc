@@ -7,6 +7,7 @@ import com.study.domain.model.userinfo.UserLoginResultBean;
 import com.study.repository.UserInfoMapper;
 import com.study.service.UserInfoService;
 import com.study.utils.character.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import java.util.List;
  */
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
+    @Autowired
     private UserInfoMapper userInfoMapper;
 
     public UserInfo getUserInfo(long userId) {
